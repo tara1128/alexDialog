@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Demo for alexDialog</title>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/alexDialog.js"></script>
+<style type="text/css">
+/* reset */
+html, body, div, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, fieldset, input, abbr, article,      aside, command, details, figcaption, figure, footer, header, hgroup, mark, meter, nav, output, progress, section, summary, time{margin:0;padding:0;}a{text-decoration:none;}ul, ol, li{list-style:none outside;}img{border:none;}s{font-style:normal; text-decoration:none;}
+::-moz-selection {background:#00b3ff;color:#fff;}::selection {background:#00b3ff;color:#fff;}body{font-size:12px;font-family:"Microsoft Yahei",arial,"Hiragino Sans GB",sans-serif;-webkit-font-smoothing:antialiased;}
+/* global */
+.wrapper{margin:50px auto;padding:50px 20px;width:918px;height:718px;border:2px solid #ddd;background:#eee;}
+.mybtn{display:block;margin:0 auto;padding:8px 18px;font-size:16px;background:#fff;color:#28d;border:2px solid #28d;cursor:pointer;}
+.mybtn:hover{color:#fff;background:#28d;}
+.wrapper p{padding:50px;text-align:center;font-size:14px;color:#666;}
+</style>
+</head>
+<body>
+<div>
+<div class="wrapper" id="Wrap">
+	<button class="mybtn" id="btn">Click me!</button>
+	<p id="txt"></p>
+</div>
+</div>
+<script>
+$("#btn").click(function(){
+		alexDialog({
+			"width": 300,
+			"title": "Warning!",
+			"descr": "This action may cause an extreme damage to your system! Are you sure you want to execute it?",
+			"btns": [{
+				"text": "Yes",
+				"handler": function(){
+					$("#txt").css("color", "green").html("I have pushed the confirm button!");
+					},
+				"background": "green",
+				"fontColor": "#fff"
+			}, {
+				"text": "No",
+				"handler": function(){
+					$("#txt").css("color", "grey").html("I have pushed the cancel button because I do not want to do it!");
+					}
+			}],
+			"toTop": 150,
+			"borderRadius": 3,
+			"backgroundColor": "#fff",
+			"borderColor": "#999",
+			"titleColor": "#333",
+			"titleFontSize": 16,
+			"titleBackgroundColor": "#ddd",
+			"titleBorderColor": "#999",
+			"descColor": "#d90001",
+			"descSize": 14,
+			"descLineHeight": 1.5
+		});
+});
+</script>
+</body>
+</html>
